@@ -47,7 +47,7 @@ namespace RTS_TASK_TWO_REDO
             isDead = parameters[11] == "True" ? true : false;
         }
 
-        public abstract string Save();
+        public abstract string Save(); //Last abstract method left
         public int X
         {
             get { return x; }
@@ -84,7 +84,7 @@ namespace RTS_TASK_TWO_REDO
             get { return name; }
         }
 
-        public virtual void Attack(Unit otherUnit)
+        public virtual void Attack(Unit otherUnit) //Turned abstract methods into virtual methods
         {
             isAttacking = true;
             otherUnit.Health -= attack;

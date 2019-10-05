@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RTS_TASK_TWO_REDO
 {
-    public enum ResourceType
+    public enum ResourceType //Enum was easier to determine resourcetype
     {
         WOOD,
         ROCK,

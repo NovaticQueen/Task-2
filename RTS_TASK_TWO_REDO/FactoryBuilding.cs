@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RTS_TASK_TWO_REDO
 {
-    public enum FactoryType
+    public enum FactoryType //Easy to determine building type
     {
         MELEE,
         RANGED
@@ -15,12 +15,12 @@ namespace RTS_TASK_TWO_REDO
     class FactoryBuilding : Building
     {
         private FactoryType type;            
-        int productionSpeed, spawnY;
+        int productionSpeed, spawnY; //how fast units can be spawned || Nessessary to save spawnY
         Random r = new Random();
 
         public FactoryBuilding(int x, int y, string team) : base (x, y, 100, team, 'ƒ')
         {
-            if (y >= Map.SIZE - 1)
+            if (y >= Map.SIZE - 1) //Determines where units will spawn from the buildings (below building if not off map & above building if bottom is off map)
             {
                 spawnY = y - 1;
             }
@@ -69,7 +69,12 @@ namespace RTS_TASK_TWO_REDO
                  );
         }
 
-        public Unit SpawnUnit()
+        public string GetFactoryType() //Converts enum back into a string
+        {
+            return new string[] { "Melee", "Ranged" }[(int)type];
+        }
+
+        public Unit SpawnUnit() //Checks the factory type and spawns the nessessary unit
         {
             Unit unit;
 

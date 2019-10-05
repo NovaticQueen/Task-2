@@ -16,7 +16,7 @@ namespace RTS_TASK_TWO_REDO
         Timer timer;
         GameState gameState = GameState.PAUSED;
 
-        public enum GameState
+        public enum GameState //Difeerent game states that the game can be in 
         {
             RUNNING,
             PAUSED,
@@ -83,12 +83,12 @@ namespace RTS_TASK_TWO_REDO
             }
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e) //Displays that the game has saved ...Very helpful
         {
             engine.SaveGame();
             mapLabel.Text = "GAME HAS BEEN SAVED\n" + mapLabel.Text;
         }
-        private void LoadButton_Click(object sender, EventArgs e)
+        private void LoadButton_Click(object sender, EventArgs e) //Displays that the game has been loaded ... Also v helpful 
         {
             engine.LoadGame();
             mapLabel.Text = "GAME HAS BEEN LOADED\n" + engine.MapDisplay;

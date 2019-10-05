@@ -181,7 +181,7 @@ namespace RTS_TASK_TWO_REDO
             stream.Close();
         }
 
-        private void SaveRound()
+        private void SaveRound() //Saves rounds seperately
         {
             FileStream stream = new FileStream(ROUND_FILENAME, FileMode.Create, FileAccess.Write);
             StreamWriter writer = new StreamWriter(stream);
@@ -190,14 +190,14 @@ namespace RTS_TASK_TWO_REDO
             writer.Close();
             stream.Close();
         }
-        public void SaveGame()
+        public void SaveGame() //Saves units & buildings in one method
         {           
             Save(UNITS_FILENAME, map.Units);
             Save(BUIDLINGS_FILENAME, map.Buildings);
             SaveRound();
         }
 
-        private void Load(string filename)
+        private void Load(string filename) 
         {
             FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
@@ -224,7 +224,7 @@ namespace RTS_TASK_TWO_REDO
             stream.Close();
         }
 
-        private void LoadRound()
+        private void LoadRound() //Loads round number seperately
         {
             FileStream stream = new FileStream(ROUND_FILENAME, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
@@ -235,7 +235,7 @@ namespace RTS_TASK_TWO_REDO
             stream.Close();
         }
 
-        public void LoadGame()
+        public void LoadGame() //Loads units and buildings in one method
         {
             map.Clear();
             Load(UNITS_FILENAME);

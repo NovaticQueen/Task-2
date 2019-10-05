@@ -159,7 +159,7 @@ namespace RTS_TASK_TWO_REDO
             }
             return mapString;
         }
-        public void Clear()
+        public void Clear() //Clears the map when loading
         {
             units = new Unit[0];
             buildings = new Building[0];

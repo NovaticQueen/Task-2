@@ -11,15 +11,15 @@ namespace RTS_TASK_TWO_REDO
         private ResourceType type;
         private int generatedPerRound;
         private int generated;
-        private int resourcePool;
+        private int resourcePool; //If this runs out resources cannot be produced
         Random r = new Random();
 
         public ResourceBuilding(int x, int y, string team) : base (x, y, 100, team, '■')
         {
-            generatedPerRound = r.Next(1, 6);
+            generatedPerRound = r.Next(1, 6); 
             generated = 0;
             resourcePool = r.Next(0, 4);
-            type = (ResourceType) r.Next(0, 4);
+            type = (ResourceType) r.Next(0, 4); //Casts from a number to enum type
         }
 
         public ResourceBuilding (string values)
@@ -34,9 +34,9 @@ namespace RTS_TASK_TWO_REDO
             generatedPerRound = int.Parse(parameters[6]);
             generated = int.Parse(parameters[7]);
             resourcePool = int.Parse(parameters[8]);
-            symbol = parameters[9][0];
+            symbol = parameters[9][0]; //takes first character of the symbol string
             team = parameters[10];
-            isDestroyed = parameters[11] == "True" ? true : false;
+            isDestroyed = parameters[11] == "True" ? true : false; //if statement
         }
         public override void Destroy()
         {
@@ -61,7 +61,7 @@ namespace RTS_TASK_TWO_REDO
                 return;
             }
 
-            if (resourcePool > 0) //can't generated if pool = 0
+            if (resourcePool > 0) //can't generate if pool = 0
             {
                 int resourcesGenerated = Math.Min(resourcePool, generatedPerRound);
                 generated += resourcesGenerated;
